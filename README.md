@@ -1,37 +1,33 @@
-# Purpose of This Repo
+# Project: Architecting IAM Implementation with Enforcement
 
-This repo is meant to be used to keep things organized during content development and act as the source of truth for all projects and exercises related to this course.
+## Section 1: Permissions and Policies
 
-## Folder Structure
+| **Criteria**                                                                 | **Submission Requirements**                                                                                                                                                                                                                                             |
+|------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| The project shows updated IAM policies that match the permissions in the Access Control Matrix. | Provide a screenshot of each updated policy with the proper statements removed to meet the organizational requirements. If needed, copy the JSON policy into a text file and take a screenshot to ensure the whole policy can be reviewed.                           |
+|                                                                              | **IAM policies to be changed/reflected in screenshots:** <br>- enterprise-analyst-policy <br>- enterprise-developer-policy <br>- enterprise-finance-policy <br>- enterprise-restrictions-policy                                                                        |
 
-### Lesson Folder
+## Section 2: IAM Role Configuration
 
-This repo contains a folder for each `lesson` and one `project` folder.
+| **Criteria**                                                                                  | **Submission Requirements**                                                                                                                                                                                                                                                 |
+|-----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| The project displays evidence that the appropriate IAM policies are attached to the proper IAM roles. | Provide a screenshot of the IAM policies attached to IAM roles in the AWS console.                                                                                                                                                                                          |
+|                                                                                               | **Roles and attached policies:** <br>**enterprise-analyst-role:** enterprise-analyst-policy, enterprise-restrictions-policy <br>**enterprise-developer-role:** enterprise-developer-policy, enterprise-restrictions-policy <br>**enterprise-finance-role:** enterprise-finance-policy, enterprise-restrictions-policy |
+| The project includes evidence that permissions are properly configured for each service accessible on the role. | While assuming each role in the AWS console, take a screenshot of the results of accessing each service or taking action. Ensure the role name is present in the screenshot so permissions can be validated.                                                                 |
+|                                                                                               | **Role-specific actions and permissions to validate:** <br>**enterprise-analyst-role:** <br>- Screenshot with access denied to `non_obfuscated.txt` object in S3 <br>- Screenshot of downloaded `obfuscated.txt` object <br>- Screenshot of uploaded `analyst.txt` object with supported tags to developer bucket |
+|                                                                                               | **enterprise-developer-role:** <br>- Screenshot of accessing a CloudWatch Metric <br>- Screenshot of accessing security group under EC2 <br>- Screenshot of uploaded `developer.txt` to developer bucket <br>- Screenshot of downloaded `developer.txt` from developer bucket |
+|                                                                                               | **enterprise-finance-role:** <br>- Screenshot of current usage in the Cost Explorer console                                                                                                                                                                                 |
 
-Example
-```
-lesson-1-hello
-lesson-2-world
-lesson-3-foo
-lesson-4-bar
-project
-```
+## Section 3: AWS Config
 
-Each `lesson` folder is named using the naming convention of `lesson-#-name-of-lesson`.
+| **Criteria**                                                        | **Submission Requirements**                                                                                                                                                                                                                                               |
+|---------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| The project includes updated Python Lambda code to monitor restricted resources. | Provide a screenshot of the Lambda console with updated code ensuring that the `RESTRICTED_RESOURCE` variable includes the `arn:aws:s3:::super-secret-bucket` string in the list.                                                                                       |
+| The project shows evidence of a manually remediated AWS Config rule. | Manually remediate the AWS Config rule to indicate that a policy breaking enterprise restrictions is marked as non-compliant. Provide a screenshot of the `ConfigRulePolicyEnforcement` rule with the `bad-policy-that-breaks-enterprise-restrictions` marked as non-compliant in the AWS Config service. |
 
-Example
-```
-lesson-1-hello
-```
+## Section 4: Organizational Role and Policy Visualization
 
-Four lesson folders have been provided as a template; However, you may need to add more or possibly use less than four depending on what is needed.
-
-If you require an additional lesson folder, you can make a copy of the folder and paste it into the root directory.
-
-### Exercises Folder
-
-Each `lesson` folder contains an `exercises` folder. This `exercises` folder should contain all files and instructions necessary for the exercises along with the solution. The solutions for these exercises will be shared with students. See the `README` in the `exercises` folder for information about folder structure.
-
-### Project Folder
-
-The `project` folder should contain all files and instructions necessary for setup. If possible, a set of instructions should be provided for both Udacity workspaces and a way to work locally (for both MacOS and Windows OS). At a minimum, one set of instructions should be provided. A `README` template has been provided in the project folder. This template layout should be used to write your README.
+| **Criteria**                                                                      | **Submission Requirements**                                                                                                                                                                                                                                                             |
+|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| The project includes an organizational role and policy visualization for documenting the role structure. | Provide a screenshot of a draw.io diagram that reflects the resource-to-permission structure. Ensure each resource defined in the policies is aligned with the appropriate permissions, with each permission located to the right of the corresponding resources in the policy.              |
+| Suggestions to Make Your Project Stand Out                                       | Use the optional AWS Config diagram to illustrate connections between resources, providing an overview of how AWS Config monitors and alerts on changes. <br>Update Lambda code to deliver notifications via SNS for non-compliant policies, subscribe an email to the SNS topic, and display an email being sent from SNS. |
