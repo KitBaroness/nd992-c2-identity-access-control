@@ -7,3 +7,11 @@ This folder should contain the solution to the exercise. This would be added to 
 ![alt text](img/legacy-developer-bucket-842654323807.png)
 
 ![alt text](img/analytics-report-bucket-842654323807.png)
+
+![alt text](img/NonObfuscatedReport.png)
+
+![alt text](img/ObfuscatedReportReady.png)
+
+![alt text](img/analystkey.png)
+
+![alt text](img/developerKey.png)
