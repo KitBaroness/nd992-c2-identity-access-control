@@ -2,48 +2,79 @@
 
 This folder should contain the starter code and instructions for the exercise.
 
-Step 4 Instructions
+## Step 4 Instructions
+
 Now that the IAM policies have been refined and attached to their appropriate roles, the roles can be tested to ensure the appropriate access has been defined.
 
-Before testing though, some S3 objects need to be created so that access can be properly tested. Create blank text files with the following names:
+### Preparing S3 Objects
 
-non_obfuscated.txt
-obfuscated.txt
-analyst.txt
-developer.txt.
-After creating these files, navigate to the S3 console, and locate the analytics-report-bucket-{aws_account_id} (replace {aws_account_id} with your AWS account id). Upload the the non_obfuscated.txt file and tag the object with a key of Stage and a value of NonObfuscatedReport. Also, upload the obfuscated.txt file and tag the object with a key of Stage and a value of ObfuscatedReportReady. The additional files will be used later.
+Before testing, create blank text files with the following names:
 
-enterprise-analyst-role
-After this initial setup has been completed, assume the enterprise-analyst-role in the AWS console. Navigate to the analytics-report-bucket-{aws_account_id} and attempt to access both objects that were previously uploaded. Within the submission template, under Steps 3 & 4, provide screenshots of the results when accessing the non_obfuscated.txt and obfuscated.txt. Be sure to include a full screenshot to display the current role that is being assumed.
+- `non_obfuscated.txt`
+- `obfuscated.txt`
+- `analyst.txt`
+- `developer.txt`
 
-Subsequently, navigate to the S3 service and locate the legacy-developer-bucket-{aws_account_id} . Replace {aws_account_id} with your AWS account id. Upload the analyst.txt file to the bucket and tag the object with a key of Role and value of analyst.
+1. Navigate to the S3 console.
+2. Locate the `analytics-report-bucket-{aws_account_id}` (replace `{aws_account_id}` with your AWS account ID).
+3. Upload the following files and tag them accordingly:
+   - **`non_obfuscated.txt`**: Tag with `Key = Stage` and `Value = NonObfuscatedReport`.
+   - **`obfuscated.txt`**: Tag with `Key = Stage` and `Value = ObfuscatedReportReady`.
 
-Within the submission template, under Steps 3 & 4 > Submission 3, provide screenshots of the results when uploading the analyst.txt file. Be sure to include a full screenshot to display the current role that is being assumed, and label the screenshot analyst.txt upload.
+The additional files (`analyst.txt` and `developer.txt`) will be used later.
 
-After completing the above, switch back to the voclabs role.
+---
 
-enterprise-developer-role
-After switching back to the voclabs role, assume the enterprise-developer-role. Subsequently, navigate to the S3 service and locate the legacy-developer-bucket-{aws_account_id}. Upload the developer.txt file to the bucket and tag the object with a key of Role and value of developer.
+### Testing with `enterprise-analyst-role`
 
+1. Assume the `enterprise-analyst-role` in the AWS console.
+2. Navigate to the `analytics-report-bucket-{aws_account_id}`:
+   - Attempt to access both objects: `non_obfuscated.txt` and `obfuscated.txt`.
+   - Provide full screenshots of the results, ensuring the current role is displayed.
 
-Within the submission template, under Steps 3 & 4 > Submission 3, provide screenshots of the results when uploading the developer.txt file. Be sure to include a full screenshot to display the current role that is being assumed. After uploading the developer.txt file, also download it, and within the submission template, under Steps 3 & 4 > Submission 3, provide screenshots of the results when uploading the developer.txt file.
+3. Navigate to the S3 service and locate the `legacy-developer-bucket-{aws_account_id}`:
+   - Upload the `analyst.txt` file and tag it with `Key = Role` and `Value = analyst`.
+   - Provide a screenshot labeled `analyst.txt upload`, ensuring the current role is visible.
 
-After testing the S3 permissions, navigate to the CloudWatch service and navigate to Metrics. Within the submission template, under Steps 3 & 4 > Submission 3 provide a screenshot of successfully viewing a CloudWatch metric.
+4. Switch back to the `voclabs` role.
 
-After validating the CloudWatch access granted to the role, navigate to the EC2 service and navigate to Security Groups. Within the submission template, under Steps 3 & 4 > Submission 3 provide a screenshot of successfully viewing a CloudWatch metric.
+---
 
-After completing the above, switch back to the voclabs role.
+### Testing with `enterprise-developer-role`
 
-enterprise-finance-role
-After switching back to the voclabs role, assume the enterprise-finance-role. Subsequently, navigate to the Billing service. Within the submission template, under Steps 3 & 4 > Submission 3, provide a screenshot of successfully accessing the Cost Explorer dashboard, as shown in the screenshot below.
+1. Assume the `enterprise-developer-role`.
+2. Navigate to the S3 service and locate the `legacy-developer-bucket-{aws_account_id}`:
+   - Upload the `developer.txt` file and tag it with `Key = Role` and `Value = developer`.
+   - Provide a full screenshot labeled `developer.txt upload`, ensuring the current role is visible.
+   - Download the `developer.txt` file and provide a screenshot of the results.
 
-![
-    
+3. Navigate to the CloudWatch service:
+   - Access the Metrics section.
+   - Provide a screenshot of successfully viewing a CloudWatch metric.
 
-Note: You or the newly created role will not have access to the some of the Billing services in Udacity offered AWS account due to security reasons.
+4. Navigate to the EC2 service:
+   - Access the Security Groups section.
+   - Provide a screenshot of successfully viewing a security group.
 
-After completing the above, switch back to the voclabs role.
+5. Switch back to the `voclabs` role.
 
-](image.png)
+---
 
-![alt text](image-1.png)
+### Testing with `enterprise-finance-role`
+
+1. Assume the `enterprise-finance-role`.
+2. Navigate to the Billing service:
+   - Access the Cost Explorer dashboard.
+   - Provide a screenshot of successfully accessing the dashboard.
+
+   > **Note:** Some Billing services may not be accessible due to security restrictions in the Udacity-provided AWS account.
+
+3. Switch back to the `voclabs` role.
+
+---
+
+### Example Screenshots
+
+![Example Screenshot 1](img/image.png)
+
+![Example Screenshot 2](img/image-1.png)
