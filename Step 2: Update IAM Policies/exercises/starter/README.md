@@ -11,4 +11,4 @@ enterprise-finance-policy
 enterprise-restrictions-policy
 Within the submission template, under Task 2, please provide screenshots of each updated policy and label the screenshots with the name of the policy. If needed, copy the json to a text file and take a screenshot so that the whole policy can be reviewed.
 
-![alt text](image.png)
+![alt text](img/checklist.png)
