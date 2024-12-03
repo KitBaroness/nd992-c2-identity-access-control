@@ -11,4 +11,4 @@ The bad-policy-that-breaks-enterprise-restrictions IAM policy should be marked n
 Within the submission template, under Steps 5 & 6 > Submission 5, provide a screenshot of the bad-policy-that-breaks-enterprise-restrictions policy being marked non-compliant.
 
 ![alt text](image.png)
-* Why is there a step 5 checklist in step 6???
+// Why is there a step 5 checklist in step 6. You need to reiterate lesson 5 instructions that carry over to 6 for "template"
